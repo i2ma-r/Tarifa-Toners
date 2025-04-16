@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <!-- Íconos de Material -->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      margin-bottom: 50px;
+    }
+    .sidebar {
+      margin-top: 20px;
+    }
+    .sidebar .card {
+      background-color: #fff;
+    }
+    .sidebar h5 {
+      padding-left: 16px;
+      padding-top: 16px;
+    }
+    .collection .collection-item.active {
+      background-color: #00796b; /* Color teal oscuro */
+      color: white;
+    }
+    /* Ajustes a las tarjetas de productos */
+    .card-product {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-image img {
+      max-height: 160px;
+      object-fit: contain;
+      background: #fff;
+      margin: auto;
+      display: block;
+    }
+    .card-content {
+      min-height: 150px;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    /* Ajustar la colección (lista) de categorías */
+    .collection .collection-item {
+      border: none; /* Opcional, para un look más minimalista */
+    }
+    .collection .collection-item:not(.active):hover {
+      background-color: #f0f0f0;
+    }
+    .pagination li.active span {
+      background-color: #00796b !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3 class="center-align">Catálogo de Productos</h3>
+
+    <!-- Filtro de búsqueda y marcas -->
+    <div class="row">
+      <form method="get" action="/" class="col s12">
+        <div class="row">
+          <div class="input-field col s12 m5">
+            <input type="text" name="q" id="busqueda" value="{{ query }}">
+            <label for="busqueda">Buscar...</label>
+          </div>
+          <div class="input-field col s12 m4">
+            <select name="brand">
+              <option value="" {% if not selected_brand %}selected{% endif %}>
+                Todas las marcas
+              </option>
+              {% for brand in brands %}
+                <option
+                  value="{{ brand }}"
+                  {% if brand == selected_brand %}selected{% endif %}
+                >
+                  {{ brand }}
+                </option>
+              {% endfor %}
+            </select>
+            <label>Marca</label>
+          </div>
+          <div class="input-field col s12 m3">
+            <button type="submit" class="btn waves-effect waves-light teal darken-2">
+              Buscar
+              <i class="material-icons right">search</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Diseño con barra lateral -->
+    <div class="row">
+      <!-- Barra lateral con una card para envolver las categorías -->
+      <div class="col s12 m3 sidebar">
+        <div class="card">
+          <h5>Categorías</h5>
+          <div class="collection">
+            <a
+              href="{{ url_for('index') }}"
+              class="collection-item {% if not current_category %}active{% endif %}"
+            >
+              Todas
+            </a>
+            {% for p in productos_sidebar %}
+              <a
+                href="{{ url_for('show_category', producto=p) }}"
+                class="collection-item {% if current_category == p %}active{% endif %}"
+              >
+                {{ p }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido principal: listado de productos -->
+      <div class="col s12 m9">
+        <div class="row">
+          {% for product in products %}
+            <div class="col s12 m6 l3">
+              <div class="card card-product hoverable">
+                <div class="card-image">
+                  {% if product['URL_photo'] %}
+                    <img
+                      src="{{ product['URL_photo'] }}"
+                      alt="{{ product['Nombre'] }}"
+                    />
+                  {% else %}
+                    <img
+                      src="https://via.placeholder.com/300x200?text=Sin+Imagen"
+                      alt="Sin imagen"
+                    />
+                  {% endif %}
+                </div>
+                <div class="card-content">
+                  <!-- Mostrar el nombre (valor de Code renombrado a Nombre) -->
+                  <span class="card-title truncate">{{ product['Nombre'] }}</span>
+                  <!-- Mostrar la clasificación de producto (valor de MacroCat) -->
+                  <p class="grey-text text-darken-1">
+                    Producto: {{ product['Producto'] }}
+                  </p>
+                  <p class="grey-text text-darken-1 truncate">
+                    Marca: {{ product['Marca'] }}
+                  </p>
+                </div>
+                <div class="card-action">
+                  <span class="blue-text text-darken-2"
+                    >Precio: {{ product['Precio'] }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Paginación -->
+        <ul class="pagination center">
+          {% if page > 1 %}
+            <li class="waves-effect">
+              <a
+                href="?q={{ query }}&brand={{ selected_brand }}&page={{ page - 1 }}"
+              >
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="disabled">
+              <a href="#!">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+          {% endif %}
+
+          <!-- Página actual / total -->
+          <li class="active teal lighten-2">
+            <a href="#!">{{ page }} / {{ total_pages }}</a>
+          </li>
+
+          {% if page < total_pages %}
+            <li class="waves-effect">
+              <a
+                href="?q={{ query }}&brand={{ selected_brand }}&page={{ page + 1 }}"
+              >
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% else %}
+            <li class="disabled">
+              <a href="#!">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Importar Materialize JS y dependencias -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var selectElems = document.querySelectorAll('select');
+      M.FormSelect.init(selectElems);
+    });
+  </script>
+</body>
+</html>
