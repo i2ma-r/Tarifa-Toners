@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda y Filtros - Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <!-- Íconos de Material -->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .search-filter-section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .btn-search {
+      background-color: #00796b !important;
+    }
+    .btn-search:hover {
+      background-color: #004d40 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    
+    <!-- SECCIÓN: BÚSQUEDA Y FILTROS -->
+    <div class="search-filter-section">
+      <div class="row">
+        <form method="get" action="/" class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m5">
+              <input type="text" name="q" id="busqueda" value="">
+              <label for="busqueda">Buscar...</label>
+            </div>
+            <div class="input-field col s12 m4">
+              <select name="brand">
+                <option value="" selected>Todas las marcas</option>
+                <option value="Arrow">Arrow</option>
+                <option value="BROTHER">BROTHER</option>
+                <option value="Brother">Brother</option>
+                <option value="Brother/Ricoh">Brother/Ricoh</option>
+                <option value="CANON">CANON</option>
+                <option value="Canon">Canon</option>
+                <option value="Casio">Casio</option>
+                <option value="Citizen">Citizen</option>
+                <option value="Compuprint">Compuprint</option>
+                <option value="Dell">Dell</option>
+                <option value="Dymo">Dymo</option>
+                <option value="Epson">Epson</option>
+                <option value="HP">HP</option>
+                <option value="HP/CANON">HP/CANON</option>
+                <option value="Hp">Hp</option>
+                <option value="Hp/Canon">Hp/Canon</option>
+                <option value="Hp/Canon/Brother">Hp/Canon/Brother</option>
+                <option value="KONICA MINOLTA">KONICA MINOLTA</option>
+                <option value="KYOCERA">KYOCERA</option>
+                <option value="Kyocera">Kyocera</option>
+                <option value="LEXMARK">LEXMARK</option>
+                <option value="Lexmark">Lexmark</option>
+                <option value="Life365">Life365</option>
+                <option value="OKI">OKI</option>
+                <option value="Olivetti">Olivetti</option>
+                <option value="PANTUM">PANTUM</option>
+                <option value="Pantum">Pantum</option>
+                <option value="RICOH">RICOH</option>
+                <option value="Ricoh">Ricoh</option>
+                <option value="SAMSUNG/XEROX/HP">SAMSUNG/XEROX/HP</option>
+                <option value="SHARP">SHARP</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Sharp">Sharp</option>
+                <option value="XEROX">XEROX</option>
+                <option value="Xerox">Xerox</option>
+                <option value="Zebra">Zebra</option>
+              </select>
+              <label>Marca</label>
+            </div>
+            <div class="input-field col s12 m3">
+              <button type="submit" class="btn waves-effect waves-light btn-search">
+                Buscar
+                <i class="material-icons right">search</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Ejemplo de uso independiente -->
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h5>Sección: Búsqueda y Filtros</h5>
+          <p>Esta sección permite a los usuarios buscar productos por nombre/descripción y filtrar por marcas.</p>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>Campo de búsqueda de texto libre</li>
+            <li>Dropdown de marcas con todas las opciones disponibles</li>
+            <li>Botón de búsqueda con icono Material Design</li>
+            <li>Diseño responsive que se adapta a diferentes tamaños de pantalla</li>
+            <li>Estilo consistente con el resto del sitio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Importar Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var selectElems = document.querySelectorAll('select');
+      M.FormSelect.init(selectElems);
+    });
+  </script>
+</body>
+</html>

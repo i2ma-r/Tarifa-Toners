@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paginación - Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <!-- Íconos de Material -->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .pagination li.active {
+      background-color: #00796b !important;
+    }
+    .pagination li.active a {
+      color: white !important;
+    }
+    .pagination li.waves-effect a:hover {
+      background-color: #e0f2f1;
+    }
+    .pagination-section {
+      padding: 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    
+    <!-- SECCIÓN: PAGINACIÓN -->
+    <div class="pagination-section">
+      <ul class="pagination center">
+        <!-- Botón anterior - deshabilitado en la primera página -->
+        <li class="disabled">
+          <a href="#!">
+            <i class="material-icons">chevron_left</i>
+          </a>
+        </li>
+        
+        <!-- Página actual / total de páginas -->
+        <li class="active">
+          <a href="#!">1 / 10</a>
+        </li>
+        
+        <!-- Botón siguiente -->
+        <li class="waves-effect">
+          <a href="#!">
+            <i class="material-icons">chevron_right</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Ejemplo con navegación habilitada -->
+    <div class="card-panel">
+      <h5>Ejemplo con navegación completa:</h5>
+      <ul class="pagination center">
+        <!-- Botón anterior -->
+        <li class="waves-effect">
+          <a href="#!">
+            <i class="material-icons">chevron_left</i>
+          </a>
+        </li>
+        
+        <!-- Páginas numéricas -->
+        <li class="waves-effect">
+          <a href="#!">1</a>
+        </li>
+        <li class="waves-effect">
+          <a href="#!">2</a>
+        </li>
+        <li class="active">
+          <a href="#!">3</a>
+        </li>
+        <li class="waves-effect">
+          <a href="#!">4</a>
+        </li>
+        <li class="waves-effect">
+          <a href="#!">5</a>
+        </li>
+        
+        <!-- Botón siguiente -->
+        <li class="waves-effect">
+          <a href="#!">
+            <i class="material-icons">chevron_right</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Información de la sección -->
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h5>Sección: Paginación</h5>
+          <p>Esta sección proporciona navegación entre páginas de resultados de forma intuitiva.</p>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>Controles de navegación anterior/siguiente con iconos Material Design</li>
+            <li>Indicador visual de la página actual (color teal)</li>
+            <li>Estados deshabilitados para límites de navegación</li>
+            <li>Efecto wave en botones interactivos</li>
+            <li>Centrado para mejor presentación</li>
+            <li>Responsive y accesible</li>
+          </ul>
+          <p><strong>Tipos de navegación:</strong></p>
+          <ul>
+            <li><strong>Formato compacto:</strong> "Página X / Total" - ideal para catálogos largos</li>
+            <li><strong>Formato extendido:</strong> Páginas numeradas individuales - ideal para pocos resultados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Importar Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
