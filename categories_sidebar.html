@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra Lateral de Categorías - Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .sidebar {
+      margin-top: 20px;
+    }
+    .sidebar .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .sidebar h5 {
+      padding-left: 16px;
+      padding-top: 16px;
+      color: #00796b;
+      font-weight: 400;
+    }
+    .collection .collection-item.active {
+      background-color: #00796b; /* Color teal oscuro */
+      color: white;
+    }
+    /* Ajustar la colección (lista) de categorías */
+    .collection .collection-item {
+      border: none; /* Opcional, para un look más minimalista */
+      transition: background-color 0.2s ease;
+    }
+    .collection .collection-item:not(.active):hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      
+      <!-- SECCIÓN: BARRA LATERAL DE CATEGORÍAS -->
+      <div class="col s12 m4 sidebar">
+        <div class="card">
+          <h5>Categorías</h5>
+          <div class="collection">
+            <a href="#" class="collection-item active">Todas</a>
+            <a href="#" class="collection-item">Cartuchos Inkjet</a>
+            <a href="#" class="collection-item">Cartuchos Plotter</a>
+            <a href="#" class="collection-item">Copiadoras Parts&Toner</a>
+            <a href="#" class="collection-item">Impresora Tickets</a>
+            <a href="#" class="collection-item">Laserjet Color</a>
+            <a href="#" class="collection-item">Laserjet Drum Unit</a>
+            <a href="#" class="collection-item">Laserjet Monocromo</a>
+            <a href="#" class="collection-item">Material de tóner</a>
+            <a href="#" class="collection-item">Paper Plotter/Photo</a>
+            <a href="#" class="collection-item">TTR</a>
+            <a href="#" class="collection-item">Tintas & DIY</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejemplo de uso independiente -->
+      <div class="col s12 m8">
+        <div class="card-panel">
+          <h5>Sección: Barra Lateral de Categorías</h5>
+          <p>Esta sección proporciona navegación por categorías de productos de forma intuitiva y visual.</p>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>Lista de categorías organizada verticalmente</li>
+            <li>Indicador visual para la categoría activa (color teal)</li>
+            <li>Efecto hover para mejor experiencia de usuario</li>
+            <li>Diseño en tarjeta con sombra sutil</li>
+            <li>Totalmente responsive</li>
+          </ul>
+          <p><strong>Categorías disponibles:</strong></p>
+          <ul>
+            <li>Todas (vista general)</li>
+            <li>Cartuchos Inkjet</li>
+            <li>Cartuchos Plotter</li>
+            <li>Copiadoras Parts&Toner</li>
+            <li>Impresora Tickets</li>
+            <li>Laserjet Color</li>
+            <li>Laserjet Drum Unit</li>
+            <li>Laserjet Monocromo</li>
+            <li>Material de tóner</li>
+            <li>Paper Plotter/Photo</li>
+            <li>TTR</li>
+            <li>Tintas & DIY</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Importar Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

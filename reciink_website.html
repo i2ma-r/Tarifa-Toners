@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reciink - Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <!-- Íconos de Material -->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      margin-bottom: 50px;
+    }
+    .sidebar {
+      margin-top: 20px;
+    }
+    .sidebar .card {
+      background-color: #fff;
+    }
+    .sidebar h5 {
+      padding-left: 16px;
+      padding-top: 16px;
+    }
+    .collection .collection-item.active {
+      background-color: #00796b; /* Color teal oscuro */
+      color: white;
+    }
+    /* Ajustes a las tarjetas de productos */
+    .card-product {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-image img {
+      max-height: 160px;
+      object-fit: contain;
+      background: #fff;
+      margin: auto;
+      display: block;
+    }
+    .card-content {
+      min-height: 150px;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    /* Ajustar la colección (lista) de categorías */
+    .collection .collection-item {
+      border: none; /* Opcional, para un look más minimalista */
+    }
+    .collection .collection-item:not(.active):hover {
+      background-color: #f0f0f0;
+    }
+    .pagination li.active span {
+      background-color: #00796b !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Este es el archivo principal de referencia que incluye todas las secciones -->
+  <div class="container">
+    
+    <!-- SECCIÓN: HEADER -->
+    <!-- Contenido del archivo: header.html -->
+    <div id="header-section">
+      <h3 class="center-align">Catálogo de Productos</h3>
+    </div>
+
+    <!-- SECCIÓN: BÚSQUEDA Y FILTROS -->
+    <!-- Contenido del archivo: search_filter.html -->
+    <div id="search-filter-section">
+      <div class="row">
+        <form method="get" action="/" class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m5">
+              <input type="text" name="q" id="busqueda" value="">
+              <label for="busqueda">Buscar...</label>
+            </div>
+            <div class="input-field col s12 m4">
+              <select name="brand">
+                <option value="" selected>Todas las marcas</option>
+                <option value="HP">HP</option>
+                <option value="Canon">Canon</option>
+                <option value="Brother">Brother</option>
+                <option value="Epson">Epson</option>
+                <!-- Más opciones de marcas -->
+              </select>
+              <label>Marca</label>
+            </div>
+            <div class="input-field col s12 m3">
+              <button type="submit" class="btn waves-effect waves-light teal darken-2">
+                Buscar
+                <i class="material-icons right">search</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- DISEÑO PRINCIPAL CON BARRA LATERAL -->
+    <div class="row">
+      
+      <!-- SECCIÓN: BARRA LATERAL DE CATEGORÍAS -->
+      <!-- Contenido del archivo: categories_sidebar.html -->
+      <div class="col s12 m3 sidebar" id="categories-sidebar-section">
+        <div class="card">
+          <h5>Categorías</h5>
+          <div class="collection">
+            <a href="#" class="collection-item active">Todas</a>
+            <a href="#" class="collection-item">Cartuchos Inkjet</a>
+            <a href="#" class="collection-item">Cartuchos Plotter</a>
+            <a href="#" class="collection-item">Copiadoras Parts&Toner</a>
+            <a href="#" class="collection-item">Impresora Tickets</a>
+            <a href="#" class="collection-item">Laserjet Color</a>
+            <a href="#" class="collection-item">Laserjet Drum Unit</a>
+            <a href="#" class="collection-item">Laserjet Monocromo</a>
+            <a href="#" class="collection-item">Material de tóner</a>
+            <a href="#" class="collection-item">Paper Plotter/Photo</a>
+            <a href="#" class="collection-item">TTR</a>
+            <a href="#" class="collection-item">Tintas & DIY</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN: GRILLA DE PRODUCTOS -->
+      <!-- Contenido del archivo: product_grid.html -->
+      <div class="col s12 m9" id="product-grid-section">
+        <div class="row">
+          <!-- Ejemplo de productos -->
+          <div class="col s12 m6 l3">
+            <div class="card card-product hoverable">
+              <div class="card-image">
+                <img src="https://via.placeholder.com/300x200?text=Producto+1" alt="Producto 1" />
+              </div>
+              <div class="card-content">
+                <span class="card-title truncate">HPQ2612A</span>
+                <p class="grey-text text-darken-1">Producto: Laserjet Monocromo</p>
+                <p class="grey-text text-darken-1 truncate">Marca: Hp/Canon</p>
+              </div>
+              <div class="card-action">
+                <span class="blue-text text-darken-2">Precio: 3,95</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l3">
+            <div class="card card-product hoverable">
+              <div class="card-image">
+                <img src="https://via.placeholder.com/300x200?text=Producto+2" alt="Producto 2" />
+              </div>
+              <div class="card-content">
+                <span class="card-title truncate">HPC4092A</span>
+                <p class="grey-text text-darken-1">Producto: Laserjet Monocromo</p>
+                <p class="grey-text text-darken-1 truncate">Marca: HP</p>
+              </div>
+              <div class="card-action">
+                <span class="blue-text text-darken-2">Precio: 7,2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l3">
+            <div class="card card-product hoverable">
+              <div class="card-image">
+                <img src="https://via.placeholder.com/300x200?text=Producto+3" alt="Producto 3" />
+              </div>
+              <div class="card-content">
+                <span class="card-title truncate">HPQ6511A</span>
+                <p class="grey-text text-darken-1">Producto: Laserjet Monocromo</p>
+                <p class="grey-text text-darken-1 truncate">Marca: HP</p>
+              </div>
+              <div class="card-action">
+                <span class="blue-text text-darken-2">Precio: 10,35</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l3">
+            <div class="card card-product hoverable">
+              <div class="card-image">
+                <img src="https://via.placeholder.com/300x200?text=Producto+4" alt="Producto 4" />
+              </div>
+              <div class="card-content">
+                <span class="card-title truncate">HPQ6511X</span>
+                <p class="grey-text text-darken-1">Producto: Laserjet Monocromo</p>
+                <p class="grey-text text-darken-1 truncate">Marca: HP</p>
+              </div>
+              <div class="card-action">
+                <span class="blue-text text-darken-2">Precio: 13</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN: PAGINACIÓN -->
+        <!-- Contenido del archivo: pagination.html -->
+        <div id="pagination-section">
+          <ul class="pagination center">
+            <li class="disabled">
+              <a href="#!">
+                <i class="material-icons">chevron_left</i>
+              </a>
+            </li>
+            <li class="active teal lighten-2">
+              <a href="#!">1 / 10</a>
+            </li>
+            <li class="waves-effect">
+              <a href="#!">
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Importar Materialize JS y dependencias -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var selectElems = document.querySelectorAll('select');
+      M.FormSelect.init(selectElems);
+    });
+  </script>
+</body>
+</html>

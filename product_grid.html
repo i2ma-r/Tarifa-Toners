@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grilla de Productos - Catálogo de Productos</title>
+  
+  <!-- Importar Materialize CSS desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    /* Ajustes a las tarjetas de productos */
+    .card-product {
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+    .card-product:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .card-image img {
+      max-height: 160px;
+      object-fit: contain;
+      background: #fff;
+      margin: auto;
+      display: block;
+      padding: 10px;
+    }
+    .card-content {
+      min-height: 150px;
+      padding: 16px;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00796b;
+    }
+    .product-category {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .product-brand {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .product-price {
+      color: #1976d2;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .card-action {
+      padding: 16px;
+      border-top: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col s12">
+        <h5>Grilla de Productos</h5>
+      </div>
+    </div>
+
+    <!-- SECCIÓN: GRILLA DE PRODUCTOS -->
+    <div class="row">
+      <!-- Producto 1 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPQ2612A" alt="HPQ2612A" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPQ2612A</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: Hp/Canon</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 3,95€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPC4092A" alt="HPC4092A" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPC4092A</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 7,20€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPQ6511A" alt="HPQ6511A" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPQ6511A</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 10,35€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPQ6511X" alt="HPQ6511X" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPQ6511X</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 13,00€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPC7115X" alt="HPC7115X" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPC7115X</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 6,60€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 6 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPC3906A" alt="HPC3906A" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPC3906A</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 8,75€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 7 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPQ2610A" alt="HPQ2610A" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPQ2610A</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: HP</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 13,50€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 8 -->
+      <div class="col s12 m6 l3">
+        <div class="card card-product hoverable">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/300x200?text=HPC4127X" alt="HPC4127X" />
+          </div>
+          <div class="card-content">
+            <span class="card-title truncate">HPC4127X</span>
+            <p class="product-category">Producto: Laserjet Monocromo</p>
+            <p class="product-brand truncate">Marca: Hp/Canon/Brother</p>
+          </div>
+          <div class="card-action">
+            <span class="product-price">Precio: 20,00€</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información de la sección -->
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h5>Sección: Grilla de Productos</h5>
+          <p>Esta sección muestra los productos en un formato de tarjetas responsive y atractivo.</p>
+          <p><strong>Características:</strong></p>
+          <ul>
+            <li>Diseño de tarjetas con imágenes de productos</li>
+            <li>Información organizada: nombre, categoría, marca y precio</li>
+            <li>Efecto hover para mejor interactividad</li>
+            <li>Layout responsive: 1 columna en móvil, 2 en tablet, 4 en desktop</li>
+            <li>Colores consistentes con la identidad del sitio</li>
+            <li>Texto truncado para mantener uniformidad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Importar Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
