@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /categoria/
+
+# Allow all search engines to index the site
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: /sitemap.xml
