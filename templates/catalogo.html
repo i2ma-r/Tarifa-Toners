@@ -2,7 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Catálogo de Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if current_category %}{{ current_category }} - {% endif %}Catálogo de Productos{% if query %} - Búsqueda: {{ query }}{% endif %}</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="{% if current_category %}Explora nuestra selección de {{ current_category }} con los mejores precios.{% elif query %}Resultados de búsqueda para {{ query }} en nuestro catálogo de productos.{% else %}Catálogo completo de productos con las mejores ofertas y marcas.{% endif %}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ request.url }}" />
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="{% if current_category %}{{ current_category }} - {% endif %}Catálogo de Productos" />
+  <meta property="og:description" content="{% if current_category %}Explora nuestra selección de {{ current_category }}.{% else %}Catálogo completo de productos con las mejores ofertas.{% endif %}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ request.url }}" />
   
   <!-- Importar Materialize CSS desde CDN -->
   <link

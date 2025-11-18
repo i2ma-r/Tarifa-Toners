@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, send_from_directory, Response
 import pandas as pd
 import math
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -106,6 +107,49 @@ def show_category(producto):
         total_pages=total_pages,
         current_category=producto  # Se pasa la categoría actualmente seleccionada
     )
+
+@app.route('/robots.txt')
+def robots_txt():
+    """Serve the robots.txt file for search engine crawlers."""
+    return send_from_directory('static', 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    """Generate a dynamic sitemap.xml for search engines."""
+    pages = []
+    
+    # Add the main index page
+    pages.append({
+        'loc': url_for('index', _external=True),
+        'lastmod': datetime.now().strftime('%Y-%m-%d'),
+        'changefreq': 'daily',
+        'priority': '1.0'
+    })
+    
+    # Add all category pages
+    for producto in unique_productos:
+        pages.append({
+            'loc': url_for('show_category', producto=producto, _external=True),
+            'lastmod': datetime.now().strftime('%Y-%m-%d'),
+            'changefreq': 'weekly',
+            'priority': '0.8'
+        })
+    
+    # Generate XML
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    for page in pages:
+        sitemap_xml += '  <url>\n'
+        sitemap_xml += f'    <loc>{page["loc"]}</loc>\n'
+        sitemap_xml += f'    <lastmod>{page["lastmod"]}</lastmod>\n'
+        sitemap_xml += f'    <changefreq>{page["changefreq"]}</changefreq>\n'
+        sitemap_xml += f'    <priority>{page["priority"]}</priority>\n'
+        sitemap_xml += '  </url>\n'
+    
+    sitemap_xml += '</urlset>'
+    
+    return Response(sitemap_xml, mimetype='application/xml')
 
 if __name__ == '__main__':
     app.run(debug=True)
